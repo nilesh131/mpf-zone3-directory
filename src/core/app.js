@@ -82,15 +82,23 @@ return `
 
         </div>
 
-        <div class="hero-partners">
-
-            <img src="photos/BizConnect.png" alt="BizConnect" />
-
-            <img src="photos/ReferralConnect.png" alt="Referral Connect" />
-
-        </div>
-
     </div>
+
+<h2>
+
+Connect.
+
+Refer.
+
+Grow.
+
+</h2>
+
+<p>
+
+Search members, companies and industries instantly.
+
+</p>
 
 </div>
 
