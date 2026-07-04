@@ -84,21 +84,6 @@ return `
 
     </div>
 
-<h2>
-
-Connect.
-
-Refer.
-
-Grow.
-
-</h2>
-
-<p>
-
-Search members, companies and industries instantly.
-
-</p>
 
 </div>
 
