@@ -1,0 +1,146 @@
+/* ==========================================================
+   MPF Zone 3 Directory
+   Design System v2
+========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+@import "./header.css";
+@import "./cards.css";
+@import "./profile.css";
+@import "./dashboard.css";
+
+/* ===========================
+   Theme
+=========================== */
+
+:root{
+
+    --primary:#7A0019;
+    --primary-light:#9A1B35;
+
+    --secondary:#D4AF37;
+
+    --background:#F5F7FB;
+
+    --surface:#FFFFFF;
+
+    --surface-light:#FAFBFD;
+
+    --text:#243447;
+
+    --text-light:#6B7280;
+
+    --border:#E5E7EB;
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    --shadow-lg:0 20px 45px rgba(0,0,0,.15);
+
+    --radius:18px;
+
+    --radius-lg:28px;
+
+    --transition:.30s ease;
+
+}
+
+/* ===========================
+   Reset
+=========================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
+
+    line-height:1.6;
+
+}
+
+/* ===========================
+   Links
+=========================== */
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+/* ===========================
+   Images
+=========================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button{
+
+    border:none;
+
+    cursor:pointer;
+
+    font-family:inherit;
+
+}
+
+/* ===========================
+   Sections
+=========================== */
+
+section{
+
+    width:min(1400px,94%);
+
+    margin:auto;
+
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+
+    margin-top:70px;
+
+    padding:30px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+}
