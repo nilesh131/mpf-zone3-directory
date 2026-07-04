@@ -44,6 +44,25 @@ return `
 
             </div>
 
+            <div class="partner">
+            <img
+                src="photos/MFCT.png"
+            >
+
+        </div>
+        </div>
+
+        <div class="topbar-center">
+
+            <div class="search-box">
+
+                <input
+                id="searchInput"
+                type="text"
+                placeholder="Search member, company or business..." />
+
+            </div>
+
         </div>
 
         <div class="event-brand">
@@ -53,33 +72,9 @@ return `
             class="biz-logo"
             alt="BizConnect"
         >
-
-        <div class="event-text">
-
-            <div class="event-title">
-
-                BizConnect 2026
-
-            </div>
-
-            <div class="event-tagline">
-
-                CONNECT • COLLABORATE • GROW
-
-            </div>
-
-        </div>
-
     </div>
 
     <div class="partners">
-
-        <div class="partner">
-            <img
-                src="photos/MFCT.png"
-            >
-
-        </div>
 
         <div class="partner">
 
@@ -114,15 +109,6 @@ Grow.
 Search members, companies and industries instantly.
 
 </p>
-
-<div class="search-box">
-
-<input
-id="searchInput"
-type="text"
-placeholder="Search member, company or business..." />
-
-</div>
 
 </div>
 
@@ -163,18 +149,6 @@ placeholder="Search member, company or business..." />
 <p>Industries</p>
 
 <small>Business Categories</small>
-
-</div>
-
-<div class="stat-card">
-
-<span>📍</span>
-
-<h3 id="cityCount">0</h3>
-
-<p>Cities</p>
-
-<small>Coverage</small>
 
 </div>
 

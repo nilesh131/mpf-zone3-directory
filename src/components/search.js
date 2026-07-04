@@ -64,9 +64,6 @@ export function initializeSearch() {
 
                 contains(member.phone, keyword)
 
-                ||
-
-                contains(member.about, keyword)
 
                 ||
 
