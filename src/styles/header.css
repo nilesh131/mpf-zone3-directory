@@ -365,7 +365,8 @@ object-fit:contain;
 
 }
 
-#chipContainer{
+#chipContainer,
+.chip-row{
 
     display:flex;
 
@@ -376,6 +377,12 @@ object-fit:contain;
 }
 
 .filter-chip{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
 
     padding:12px 22px;
 
@@ -390,6 +397,36 @@ object-fit:contain;
     transition:.25s;
 
     font-size:15px;
+
+}
+
+.chip-label{
+
+    display:inline-block;
+
+}
+
+.chip-count{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-width:26px;
+
+    padding:4px 10px;
+
+    margin-left:4px;
+
+    border-radius:999px;
+
+    background:rgba(0,0,0,0.06);
+
+    font-size:14px;
+
+    color:var(--text);
 
 }
 
