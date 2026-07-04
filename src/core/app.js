@@ -77,6 +77,8 @@ return `
                 <h1>MPF Zone 3</h1>
 
                 <span>Business Referral Directory</span>
+                </br></br>Browse the directory, search by anything, or match members by what they're looking for and what they can offer. 
+                </br>Tap WhatsApp on any card to reach them directly.
 
             </div>
 
