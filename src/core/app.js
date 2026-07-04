@@ -36,20 +36,13 @@ return `
 
         <div class="brand-left">
 
-            <div>
-
-                <h1>MPF Zone 3</h1>
-
-                <span>Business Referral Directory</span>
-
+            <div class="partner">
+                <img
+                    src="photos/MFCT.png"
+                    alt="MFCT"
+                >
             </div>
 
-            <div class="partner">
-            <img
-                src="photos/MFCT.png"
-            >
-
-        </div>
         </div>
 
         <div class="topbar-center">
@@ -65,25 +58,6 @@ return `
 
         </div>
 
-        <div class="event-brand">
-
-        <img
-            src="photos/BizConnect.png"
-            class="biz-logo"
-            alt="BizConnect"
-        >
-    </div>
-
-    <div class="partners">
-
-        <div class="partner">
-
-            <img
-                src="photos/ReferralConnect.png"
-            >
-
-        </div>
-
     </div>
 
 </header>
@@ -94,21 +68,29 @@ return `
 
 <div class="hero-content">
 
-<h2>
+    <div class="hero-top">
 
-Connect.
+        <div class="hero-brand">
 
-Refer.
+            <div>
 
-Grow.
+                <h1>MPF Zone 3</h1>
 
-</h2>
+                <span>Business Referral Directory</span>
 
-<p>
+            </div>
 
-Search members, companies and industries instantly.
+        </div>
 
-</p>
+        <div class="hero-partners">
+
+            <img src="photos/BizConnect.png" alt="BizConnect" />
+
+            <img src="photos/ReferralConnect.png" alt="Referral Connect" />
+
+        </div>
+
+    </div>
 
 </div>
 
