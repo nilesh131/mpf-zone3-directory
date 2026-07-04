@@ -49,7 +49,7 @@ return `
         <div class="event-brand">
 
         <img
-            src="photos/bizconnect.png"
+            src="/photos/bizconnect.png"
             class="biz-logo"
             alt="BizConnect"
         >
@@ -76,7 +76,7 @@ return `
 
         <div class="partner">
             <img
-                src="photos/mfct.png"
+                src="/photos/mfct.png"
             >
 
         </div>
@@ -84,7 +84,7 @@ return `
         <div class="partner">
 
             <img
-                src="photos/referralconnect.png"
+                src="/photos/referralconnect.png"
             >
 
         </div>
