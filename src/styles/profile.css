@@ -233,3 +233,14 @@ margin-bottom:18px;
 font-size:22px;
 
 }
+
+/* Prevent mobile browsers from underlining phone numbers in the profile */
+.profile-section,
+.profile-section p,
+.profile-section a {
+    text-decoration:none !important;
+}
+
+.profile-section a {
+    color:inherit;
+}
