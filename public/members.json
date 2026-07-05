@@ -2218,7 +2218,7 @@
     "memberType": "Business Owner",
     "company": "Rishtey Dhaage",
     "industry": "IT, Software & AI",
-    "about": "Rishtey Dhaage is a B2B matrimony platform for community organisations (Samaj/Sabha). We build ready-to-use community matrimony apps and run online, offline and hybrid \"Ghar Baithe Parichay Sammelan\" matchmaking events. Since 2015 we have powered 95+ events for 25+ organisations across 12+ communities, helping arrange 3,000+ marriages. Website: rishteydhaage.com",
+    "about": "Rishtey Dhaage is a B2B matrimony platform for community organisations (Samaj/Sabha). We build ready-to-use community matrimony apps and run online, offline and hybrid \"Ghar Baithe Parichay Sammelan\" matchmaking events. Since 2015 we have powered 95+ events for 25+ organisations across 12+ communities, helping arrange 3,000+ marriages. Website: www.rishteydhaage.com",
     "services": [
       "Online Parichay Sammelan events & community matrimony apps"
     ],
@@ -2990,6 +2990,121 @@
       "I support businesses in adopting AI—especially Agentic AI—by identifying practical use cases and enabling seamless integration into their workflows to drive real value."
     ],
     "photo": "/photos/9890421482.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 105,
+    "name": "Poonam Pankaj Chandak",
+    "phone": "7875629628",
+    "chapter": "Uptown",
+    "memberType": "Business Owner",
+    "company": "Sattva Distributors",
+    "industry": "Healthcare & Wellness",
+    "about": "Sattva Distributors is a trusted pharmaceutical wholesaler specializing in Critical Care, Life-Saving, Oncology, Nephrology, Vaccines and Specialty Medicines. We are committed to providing genuine products, competitive pricing, and reliable service to hospitals, pharmacies, and healthcare professionals.\n\nKnow more about us at www.sattvadistributors.com.",
+    "services": [
+      "Ensuring timely availability of critical healthcare medicines at competitive prices."
+    ],
+    "lookingFor": [
+      "Looking to connect with hospitals",
+      "pharmacy chains",
+      "healthcare institutions",
+      "and pharmaceutical companies for distribution partnerships and business referrals."
+    ],
+    "idealReferral": [
+      "Hospital owners",
+      "doctors",
+      "healthcare administrators",
+      "pharmacy chain owners",
+      "pharmaceutical manufacturers",
+      "and healthcare entrepreneurs."
+    ],
+    "canHelp": [
+      "I can provide reliable supply of genuine Critical Care",
+      "Oncology",
+      "Life-Saving",
+      "and Specialty Medicines at competitive prices with timely delivery",
+      "along with trusted pharmaceutical sourcing support."
+    ],
+    "photo": "/photos/7875629628.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 106,
+    "name": "Sonam toshniwal",
+    "phone": "8619993866",
+    "chapter": "Infinity",
+    "memberType": "Employed Professional",
+    "company": "CA profession in MNC",
+    "industry": "Finance, Tax & Insurance",
+    "about": "",
+    "services": [
+      "Expertise in audit",
+      "research",
+      "finance",
+      "accountancy",
+      "GST etc."
+    ],
+    "lookingFor": [
+      "To interact with finance field related people"
+    ],
+    "idealReferral": [
+      "Finance",
+      "corporates"
+    ],
+    "canHelp": [
+      "Finance",
+      "Tax related advise"
+    ],
+    "photo": "/photos/8619993866.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 107,
+    "name": "Aditya Abhay Birla",
+    "phone": "9336600779",
+    "chapter": "Infinity",
+    "memberType": "Business Owner",
+    "company": "Maa Kesar",
+    "industry": "Healthcare & Wellness",
+    "about": "MAA Kesar is a premium homegrown Kashmiri saffron brand carrying a 48-year legacy of cultivation. We deliver pure and authentic saffron directly from our farms, ensuring exceptional quality, aroma, and trust in every strand.\n\nWebsite : www.maakesar.com",
+    "services": [
+      "Premium Saffron Solutions for Weddings & Special Occasions",
+      "Dealer & Distributor Opportunities Across India",
+      "Bulk Saffron Supply for Businesses & Retailers",
+      "Corporate & Festive Bulk Orders",
+      "Authentic Homegrown Kashmiri Saffron Supply",
+      "Customized Saffron Packaging Solutions"
+    ],
+    "lookingFor": [
+      "Looking for introductions to wedding planners",
+      "event organizers",
+      "premium retailers",
+      "wholesalers",
+      "dealers",
+      "distributors",
+      "corporate buyers",
+      "and businesses interested in authentic Kashmiri saffron for bulk orders",
+      "gifting",
+      "and long-term partnerships."
+    ],
+    "idealReferral": [
+      "Wedding planners",
+      "event organizers",
+      "corporate purchase decision-makers",
+      "premium retailers",
+      "wholesalers",
+      "distributors",
+      "HR/Admin professionals",
+      "hotel & restaurant owners",
+      "gourmet store owners",
+      "supermarket chains."
+    ],
+    "canHelp": [
+      "I can contribute by sharing genuine business referrals",
+      "connecting members with my professional network",
+      "and offering insights from my entrepreneurial journey and business experiences. I am open to collaborations and helping fellow members grow through meaningful connections."
+    ],
+    "photo": "/photos/9336600779.png",
     "avatar": "default-avatar.png"
   }
 ]

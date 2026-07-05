@@ -3,6 +3,7 @@ import {
     website,
     maps
 } from "./contact.js";
+import { titleCase } from "../utils/helpers.js";
 
 let overlay;
 let drawer;
@@ -66,22 +67,30 @@ function closeProfile(){
 }
 
 function bindButtons(member){
+    const btnEmail = document.getElementById("btnEmail");
+    if (btnEmail) {
+        btnEmail.onclick = () => {
+            const mail = email(member.email);
+            if (mail && mail !== "#") window.location.href = mail;
+        };
+    }
 
-    document.getElementById("btnEmail").onclick = () => {
-        const mail = email(member.email);
-        if (mail && mail !== "#") window.location.href = mail;
-    };
+    const btnWebsite = document.getElementById("btnWebsite");
+    if (btnWebsite) {
+        btnWebsite.onclick = () => {
+            const candidate = getWebsiteFromMember(member);
+            const url = website(candidate || member.website || member.company);
+            if (url && url !== "#") window.open(url, "_blank");
+        };
+    }
 
-    document.getElementById("btnWebsite").onclick = () => {
-        const candidate = getWebsiteFromMember(member);
-        const url = website(candidate || member.website || member.company);
-        if (url && url !== "#") window.open(url, "_blank");
-    };
-
-    document.getElementById("btnMap").onclick = () => {
-        const url = maps(member.address || member.company || member.chapter);
-        if (url && url !== "#") window.open(url, "_blank");
-    };
+    const btnMap = document.getElementById("btnMap");
+    if (btnMap) {
+        btnMap.onclick = () => {
+            const url = maps(member.address || member.company || member.chapter);
+            if (url && url !== "#") window.open(url, "_blank");
+        };
+    }
 
 }
 
@@ -97,7 +106,7 @@ function createProfile(member){
         class="profile-photo"
     >
 
-    <h2>${member.name}</h2>
+    <h2>${titleCase(member.name)}</h2>
 
     <p>${member.company || ""}</p>
 
@@ -201,12 +210,6 @@ ${member.services
 </div>
 
 <div class="profile-actions">
-
-<button id="btnEmail" class="purple">
-
-✉ Email
-
-</button>
 
 <button id="btnWebsite" class="dark">
 

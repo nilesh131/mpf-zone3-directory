@@ -1,4 +1,5 @@
 import { openProfile } from "./profile.js";
+import { titleCase } from "../utils/helpers.js";
 
 let currentMembers = [];
 
@@ -26,6 +27,13 @@ export function renderMembers(members) {
     grid.innerHTML = members
         .map(memberCard)
         .join("");
+
+    // mark when few results are present so CSS can adjust button sizing
+    if (members.length <= 2) {
+        grid.classList.add('few-results');
+    } else {
+        grid.classList.remove('few-results');
+    }
 
     attachEvents();
 
@@ -56,7 +64,7 @@ function memberCard(member) {
         <img
             src="${image}"
             loading="lazy"
-            alt="${member.name}"
+            alt="${titleCase(member.name)}"
             onerror="this.onerror=null;this.src='/default-avatar.png';"
         >
 
@@ -66,7 +74,7 @@ function memberCard(member) {
 
         <h2 class="member-name">
 
-            ${member.name}
+            ${titleCase(member.name)}
 
         </h2>
 
@@ -94,38 +102,49 @@ function memberCard(member) {
 
         <div class="member-actions">
 
-            <a
-                class="btn whatsapp"
-                href="https://wa.me/${cleanPhone(member.phone)}"
-                target="_blank"
-            >
+            <div class="actions-left">
 
-            <span>💬</span>
-            <span>WhatsApp</span>
+                <a
+                    class="btn whatsapp"
+                    href="https://wa.me/${cleanPhone(member.phone)}"
+                    target="_blank"
+                >
 
-            </a>
+                <span>💬</span>
+                <span>WhatsApp</span>
 
-            <a
-                class="btn call"
-                href="tel:${member.phone}"
-            >
+                </a>
 
-            <span>📞</span>
-            <span>Call</span>
+                <a
+                    class="btn call"
+                    href="tel:${member.phone}"
+                >
 
-            </a>
+                <span>📞</span>
+                <span>Call</span>
+
+                </a>
+
+                <button
+                    class="btn profile profileButton"
+                    data-id="${member.id}"
+                >
+
+                <span>👤</span>
+                <span>View</span>
+
+                </button>
+
+            </div>
 
         </div>
 
-        <button
-            class="profileButton"
-            data-id="${member.id}"
-        >
+        <div class="about-block">
+            <span class="about-inline" title="${escapeHtml(member.about || '')}">
+                ${oneLiner(member.about || '')}
+            </span>
+        </div>
 
-        <span>👤</span>
-        <span>View Profile</span>
-
-        </button>
 
     </div>
 
@@ -187,4 +206,20 @@ function firstIndustry(value) {
         .split(";")[0]
         .trim();
 
+}
+
+function escapeHtml(str){
+    return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/\"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+}
+
+function oneLiner(str, max=80){
+    if(!str) return "";
+    const single = String(str).replace(/\s+/g, ' ').trim();
+    if(single.length <= max) return escapeHtml(single);
+    return escapeHtml(single.slice(0, max).trim() + '...');
 }

@@ -23,6 +23,13 @@
 
     align-items:start;
 
+    
+    /* Move about below buttons on slightly larger small widths */
+    @media (max-width:900px){
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
 }
 
 /* --------------------------
@@ -52,6 +59,36 @@
 }
 
 .member-card:hover{
+    @media (max-width:900px){
+        .member-actions{
+            flex-direction:column;
+            align-items:flex-start;
+            gap:10px;
+        }
+
+        .actions-left{
+            width:100%;
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:flex-start;
+            gap:10px;
+        }
+
+        .actions-right{
+            width:100%;
+            justify-content:flex-start;
+            padding-left:0;
+            margin-top:6px;
+        }
+
+        .about-inline{
+            white-space:normal;
+            overflow:visible;
+            text-overflow:unset;
+            display:block;
+            max-height:none;
+        }
+    }
 
     transform:translateY(-10px);
 
@@ -543,14 +580,50 @@
 
 .member-actions{
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(2,1fr);
+    align-items:center;
 
-    gap:14px;
+    justify-content:space-between;
+
+    gap:12px;
 
     margin-bottom:18px;
 
+}
+
+.actions-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex: 1 1 0;
+}
+
+.actions-right{
+    flex: 1 1 0;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    padding-left:12px;
+    min-width:0;
+}
+
+.about-inline{
+    display:block;
+    color:#6B7280;
+    font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-size:13px;
+    font-weight:600;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    min-width:0;
+}
+.about-block{
+    display:block;
+    padding:0 18px 8px 18px;
+    text-align:right;
 }
 
 /* ===========================================================
@@ -587,6 +660,63 @@
 
     box-shadow:0 8px 20px rgba(0,0,0,.12);
 
+}
+
+.member-actions .btn{
+    height:42px;
+    font-size:14px;
+    border-radius:12px;
+    padding:0 14px;
+    min-width:88px;
+}
+
+/* By default buttons keep their intrinsic width but may shrink if space is tight */
+.member-actions .btn{flex:0 1 auto}
+
+/* When only one member card is visible, make buttons expand evenly to fill space */
+#memberGrid > .member-card:only-child .member-actions{justify-content:space-between}
+#memberGrid > .member-card:only-child .actions-left,
+#memberGrid > .member-card:only-child .actions-right{
+    flex:1 1 0;
+}
+#memberGrid > .member-card:only-child .member-actions .btn{
+    flex:1 1 0;
+    min-width:0;
+}
+
+/* Slight max width to avoid extremely wide buttons on very large screens */
+#memberGrid > .member-card:only-child .member-actions .btn{
+    max-width:420px;
+}
+
+/* When there are just a few results (1-2), expand buttons to fill card width */
+#memberGrid.few-results .member-actions{
+    justify-content:space-between;
+}
+
+#memberGrid.few-results .member-actions .btn{
+    flex:1 1 0;
+    min-width:0;
+}
+
+#memberGrid.few-results .member-actions .btn + .btn{
+    margin-left:12px;
+}
+
+.member-actions .profileButton{
+    width:auto;
+    height:42px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(122,0,25,.22);
+}
+
+.member-actions .profileButton:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 34px rgba(122,0,25,.30);
+}
+
+.member-actions .profileButton:active{
+    transform:scale(.98);
 }
 
 /* Ripple Overlay */
@@ -828,6 +958,10 @@
 /* ---------- Desktop ---------- */
 
 @media (max-width:1400px){
+        .about-block{
+            text-align:left;
+            padding:0 12px 6px 12px;
+        }
 
     .member-grid{
 
@@ -969,7 +1103,9 @@
 
     .member-actions{
 
-        grid-template-columns:1fr;
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
 
     }
 
@@ -1118,3 +1254,24 @@
 /* ===========================================================
    END
 ===========================================================*/
+
+/* When the grid contains only one member, stretch action buttons
+   to fill the available horizontal space inside the card. */
+#memberGrid > .member-card:only-child .actions-left{
+    width:100%;
+    display:flex;
+    gap:12px;
+}
+
+#memberGrid > .member-card:only-child .actions-left .btn{
+    flex:1 1 0;
+    min-width:0;
+}
+
+#memberGrid > .member-card:only-child .actions-left .profileButton{
+    flex:1 1 0;
+}
+
+#memberGrid > .member-card:only-child .about-block{
+    padding:0 18px 12px 18px;
+}
