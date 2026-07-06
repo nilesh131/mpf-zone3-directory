@@ -449,7 +449,7 @@
   },
   {
     "id": 18,
-    "name": "Ar.Anup Rajendra Kabra",
+    "name": "Ar. Anup Rajendra Kabra",
     "phone": "9890021721",
     "chapter": "West",
     "memberType": "Business Owner",
@@ -3105,6 +3105,333 @@
       "and offering insights from my entrepreneurial journey and business experiences. I am open to collaborations and helping fellow members grow through meaningful connections."
     ],
     "photo": "/photos/9336600779.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 108,
+    "name": "Chirag Sandip Lohiya",
+    "phone": "9860005666",
+    "chapter": "PCMC",
+    "memberType": "Business Owner",
+    "company": "S A Electronic private limited",
+    "industry": "Manufacturing, Logistics & Engineering;Other",
+    "about": "www.saelectro.com",
+    "services": [
+      "Process control and automation industrial instruments"
+    ],
+    "lookingFor": [
+      "Introduction"
+    ],
+    "idealReferral": [
+      "Industrial"
+    ],
+    "canHelp": [
+      "Industrial hardware solution for automation"
+    ],
+    "photo": "/photos/9860005666.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 109,
+    "name": "Akash Daga",
+    "phone": "9740071444",
+    "chapter": "Uptown",
+    "memberType": "Business Owner",
+    "company": "GrowthEdge Financials",
+    "industry": "Finance, Tax & Insurance",
+    "about": "GrowthEdge Financials is a full-service Chartered Accountancy firm committed to delivering expert financial solutions and strategic advisory services tailored to meet the evolving needs of businesses and individuals. Our firm specializes in Tax Planning & Consultancy, CFO Services, Business Planning, Investment Advisory, Financial Reporting, Audit & Assurance, GST Compliance & many such services.\nOur team of experienced professionals combines technical expertise with practical business insight to help clients optimize tax efficiency, ensure compliance, improve financial performance, and make informed investment decisions.",
+    "services": [
+      "Direct Tax",
+      "Indirect Tax",
+      "Virtual CFO service",
+      "Business planning"
+    ],
+    "lookingFor": [
+      "For a referral networking programme",
+      "a concise and professional response would be:",
+      "I seek meaningful connections with business owners",
+      "entrepreneurs",
+      "startups",
+      "professionals",
+      "and SMEs who may benefit from expert assistance in Income Tax",
+      "GST",
+      "regulatory compliances",
+      "and Virtual CFO services. I am also looking to build long-term referral partnerships with professionals such as lawyers",
+      "bankers",
+      "consultants",
+      "and business advisors who value trusted and responsive financial advisory support for their clients."
+    ],
+    "idealReferral": [
+      "Entrepreneurs",
+      "SME owners",
+      "startup founders",
+      "consultants",
+      "lawyers",
+      "bankers",
+      "and business advisors who work closely with clients requiring tax",
+      "compliance",
+      "and financial advisory services would be ideal members to fulfil my ask."
+    ],
+    "canHelp": [
+      "I provide expert assistance in Income Tax",
+      "GST",
+      "business compliances",
+      "tax planning",
+      "and Virtual CFO services. Members can confidently refer clients requiring reliable financial and taxation support",
+      "while benefiting from timely advice",
+      "knowledge sharing",
+      "and reciprocal referral opportunities."
+    ],
+    "photo": "/photos/9740071444.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 110,
+    "name": "Ajab Maheshwari",
+    "phone": "8861975577",
+    "chapter": "Uptown",
+    "memberType": "Business Owner",
+    "company": "NexGen Detal Mart. We are distributors of Dental Implant",
+    "industry": "Finance, Tax & Insurance;IT, Software & AI;Healthcare & Wellness",
+    "about": "We are distributors of high quality dental Implants",
+    "services": [
+      "Dental Implants diatributor"
+    ],
+    "lookingFor": [
+      "Marketing"
+    ],
+    "idealReferral": [
+      "Dentists"
+    ],
+    "canHelp": [
+      "We are distributor of high quality dental Implants."
+    ],
+    "photo": "/photos/8861975577.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 111,
+    "name": "Ritesh Ashok Laddha",
+    "phone": "9112255573",
+    "chapter": "PCMC",
+    "memberType": "Employed Professional",
+    "company": "Infosys Limited",
+    "industry": "IT, Software & AI",
+    "about": "",
+    "services": [
+      "Quality Assurance"
+    ],
+    "lookingFor": [
+      "Connects in the industry"
+    ],
+    "idealReferral": [],
+    "canHelp": [
+      "Latest IT profession insights"
+    ],
+    "photo": "/photos/9112255573.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 112,
+    "name": "Sunil kasat",
+    "phone": "9167916888",
+    "chapter": "West",
+    "memberType": "Business Owner",
+    "company": "R G Kasat Industries Pvt ltd",
+    "industry": "Healthcare & Wellness;Manufacturing, Logistics & Engineering;Food, Bakery & Hospitality",
+    "about": "www.rgkasat.com",
+    "services": [
+      "Mfg",
+      "food tech",
+      "exports"
+    ],
+    "lookingFor": [
+      "Food tech automations",
+      "Digital marketing",
+      "CRM AND ERP software’s"
+    ],
+    "idealReferral": [],
+    "canHelp": [
+      "Support Export and mfg road map"
+    ],
+    "photo": "/photos/9167916888.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 113,
+    "name": "Himali Mundra",
+    "phone": "9226256918",
+    "chapter": "PCMC",
+    "memberType": "Business Owner",
+    "company": "Celebrating Lifestyle Hub",
+    "industry": "Healthcare & Wellness",
+    "about": "I offer 1 to 1 medicine free health solutions - Craniosacral Therapy, Bach Flower Remedy and Lifestyle Support to treat stress, pains, migraines, digestive imbalance, hormonal imbalance, recovery and pregnancy support. Website: www.himalimundra.com",
+    "services": [
+      "Craniosacral Therapy",
+      "Bach Flower Remedy and Lifestyle Support"
+    ],
+    "lookingFor": [
+      "Connects of physiotherapists",
+      "homeopaths",
+      "fitness centres",
+      "mother care centres",
+      "yoga studios or teachers",
+      "any alternative health practitioner"
+    ],
+    "idealReferral": [
+      "person working in health industry"
+    ],
+    "canHelp": [
+      "I have 6+ years of corporate experience and so I can refer HR contacts and IT professional contacts"
+    ],
+    "photo": "/photos/9226256918.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 114,
+    "name": "Ganesh Gattani",
+    "phone": "9850609100",
+    "chapter": "PCMC",
+    "memberType": "Business Owner",
+    "company": "Krishna ply lam & hardware",
+    "industry": "Real Estate & Construction;Retail, E-commerce & Trading",
+    "about": "Wholesale and retail provider of all types of ply, laminate, venner and decorative material. Premium quality material with reasonable price.",
+    "services": [
+      "Wholesale and retail dealer in furniture material."
+    ],
+    "lookingFor": [
+      "Connect with more interior designer and builders to work on collaboration to deliver e2e services to customer."
+    ],
+    "idealReferral": [
+      "Interior designer and builders."
+    ],
+    "canHelp": [
+      "Best quality hardware and furniture material."
+    ],
+    "photo": "/photos/9850609100.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 115,
+    "name": "Swati Pratik Charkha",
+    "phone": "9970771695",
+    "chapter": "PCMC",
+    "memberType": "Business Owner",
+    "company": "Ishvi Gifts",
+    "industry": "Other",
+    "about": "Corporate Gifting and Events merchandise and wedding Gifting",
+    "services": [
+      "Corporate Customised Gifting"
+    ],
+    "lookingFor": [
+      "HR’s",
+      "Marketing head and Purchase head of companies and Clients whose employee strength is more than 50"
+    ],
+    "idealReferral": [
+      "HR and Marketing heads"
+    ],
+    "canHelp": [
+      "I can  connect to corporates",
+      "CA’s"
+    ],
+    "photo": "/photos/9970771695.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 116,
+    "name": "Bhavana Jaju",
+    "phone": "7447424548",
+    "chapter": "Uptown",
+    "memberType": "Employed Professional",
+    "company": "Infosys",
+    "industry": "IT, Software & AI",
+    "about": "",
+    "services": [
+      "Business Analyst"
+    ],
+    "lookingFor": [
+      "Looking for professional from my field"
+    ],
+    "idealReferral": [],
+    "canHelp": [
+      "My knowledge from my field"
+    ],
+    "photo": "/photos/7447424548.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 117,
+    "name": "Meet Anand Malpani",
+    "phone": "7709737990",
+    "chapter": "West",
+    "memberType": "Business Owner",
+    "company": "RareMint Guild LLP",
+    "industry": "Other",
+    "about": "We manufacture bamboo socks for Ll",
+    "services": [
+      "Venture Building"
+    ],
+    "lookingFor": [
+      "Reliable sports store owners and shoe store owners and socks designers or people having experience in designing"
+    ],
+    "idealReferral": [
+      "Sports stores or shoe stores running in pune from 10 years"
+    ],
+    "canHelp": [
+      "I can give you the ecommerce network which you will need for building a brand and the backhend"
+    ],
+    "photo": "/photos/7709737990.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 118,
+    "name": "Gaurav Girdhardas mall",
+    "phone": "9822503541",
+    "chapter": "Infinity",
+    "memberType": "Business Owner",
+    "company": "Rainbow developer and promoters LLP",
+    "industry": "Real Estate & Construction",
+    "about": "www.Rainbowhousing.net",
+    "services": [
+      "Management"
+    ],
+    "lookingFor": [
+      "Mangement"
+    ],
+    "idealReferral": [
+      "Company"
+    ],
+    "canHelp": [
+      "How to manage the construction planning on site and office"
+    ],
+    "photo": "/photos/9822503541.png",
+    "avatar": "default-avatar.png"
+  },
+  {
+    "id": 119,
+    "name": "Rishikesh Heda",
+    "phone": "7875559285",
+    "chapter": "PCMC",
+    "memberType": "Business Owner",
+    "company": "Property Resolve",
+    "industry": "HR, Legal & Consulting",
+    "about": "PropertyResolve (propertyresolve.in) is a Pune-based legal practice specializing in property law, conveyancing, and real estate compliance across Maharashtra. We help individuals, developers, housing societies, and businesses navigate the legal complexities of property transactions with clarity and confidence.\nWebsite: propertyresolve.in",
+    "services": [
+      "Property Transfer and Litigation"
+    ],
+    "lookingFor": [
+      "Builders and Developers",
+      "Real Estate Agents and Consultants",
+      "Legal Head in Banks"
+    ],
+    "idealReferral": [
+      "Real Estate Industry"
+    ],
+    "canHelp": [
+      "Sole Selling Agents",
+      "Real Estate Developers"
+    ],
+    "photo": "/photos/7875559285.png",
     "avatar": "default-avatar.png"
   }
 ]
