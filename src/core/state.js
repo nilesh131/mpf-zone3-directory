@@ -3,6 +3,7 @@ let filteredMembers = [];
 let activeChapter = "ALL";
 let activeIndustry = "ALL";
 let activeMemberType = "ALL";
+let activeSearch = "";
 
 export function setMembers(members) {
     allMembers = [...members];
@@ -43,4 +44,12 @@ export function getActiveMemberType(){
 
 export function setActiveMemberType(type){
     activeMemberType = type;
+}
+
+export function getActiveSearch(){
+    return activeSearch;
+}
+
+export function setActiveSearch(query){
+    activeSearch = query || "";
 }

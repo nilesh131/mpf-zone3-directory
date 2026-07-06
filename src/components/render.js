@@ -1,11 +1,14 @@
 import { openProfile } from "./profile.js";
-import { titleCase } from "../utils/helpers.js";
+import { getMembers } from "../core/state.js";
+import { titleCase, initials, whatsappNumber, escapeHtml } from "../utils/helpers.js";
 
 let currentMembers = [];
 
 export function renderMembers(members) {
 
     currentMembers = members;
+
+    updateResultCount(members ? members.length : 0);
 
     const grid = document.getElementById("memberGrid");
 
@@ -15,9 +18,11 @@ export function renderMembers(members) {
 
         grid.innerHTML = `
             <div class="empty-state">
-                <div class="empty-icon">🔍</div>
-                <h2>No Members Found</h2>
-                <p>Try changing your search or filters.</p>
+                <div class="empty-icon">
+                    <svg class="ico" style="width:40px;height:40px;color:var(--muted-2)"><use href="#i-search"/></svg>
+                </div>
+                <h2>No members found</h2>
+                <p>Try a different search or clear the filters.</p>
             </div>
         `;
 
@@ -28,13 +33,6 @@ export function renderMembers(members) {
         .map(memberCard)
         .join("");
 
-    // mark when few results are present so CSS can adjust button sizing
-    if (members.length <= 2) {
-        grid.classList.add('few-results');
-    } else {
-        grid.classList.remove('few-results');
-    }
-
     attachEvents();
 
 }
@@ -43,112 +41,74 @@ function memberCard(member) {
 
     const image = getImage(member);
 
-    const chapter = member.chapter || "MPF";
+    const name = titleCase(member.name);
 
     const company = member.company || "-";
 
     const industry = firstIndustry(member.industry);
 
+    const chapter = member.chapter || "MPF";
+
+    const type = member.memberType || "Other";
+
+    const about = escapeHtml(String(member.about || "").replace(/\s+/g, " ").trim());
+
+    const init = escapeHtml(initials(member.name));
+
     return `
 
-<div class="member-card">
+<article class="card" data-id="${member.id}">
 
-    <div class="member-banner">
+    <div class="card-head">
 
-        <div class="banner-pattern"></div>
+        <div class="avatar">
+            <img
+                src="${image}"
+                alt="${escapeHtml(name)}"
+                loading="lazy"
+                onerror="this.onerror=null;this.parentElement.textContent='${init}';"
+            >
+        </div>
+
+        <div>
+            <h3 class="card-name">${escapeHtml(name)}</h3>
+            <p class="card-co">
+                <svg class="ico"><use href="#i-building"/></svg>${escapeHtml(company)}
+            </p>
+        </div>
 
     </div>
 
-    <div class="member-avatar">
+    <div class="card-chips">
+        <span class="tag ch">${escapeHtml(chapter)}</span>
+        <span class="tag ind">${escapeHtml(industry)}</span>
+        <span class="tag type">${escapeHtml(type)}</span>
+    </div>
 
-        <img
-            src="${image}"
-            loading="lazy"
-            alt="${titleCase(member.name)}"
-            onerror="this.onerror=null;this.src='/default-avatar.png';"
+    <p class="card-about">${about}</p>
+
+    <div class="card-actions">
+
+        <a
+            class="btn btn-wa"
+            href="https://wa.me/${whatsappNumber(member.phone)}"
+            target="_blank"
+            rel="noopener"
         >
+            <svg class="ico"><use href="#i-chat"/></svg>WhatsApp
+        </a>
+
+        <a class="btn btn-sec" href="tel:${escapeHtml(String(member.phone || ""))}">
+            <svg class="ico"><use href="#i-phone"/></svg>Call
+        </a>
+
+        <button class="btn btn-sec profileButton" data-id="${member.id}">
+            <svg class="ico"><use href="#i-arrow"/></svg>Profile
+        </button>
 
     </div>
 
-    <div class="member-content">
-
-        <h2 class="member-name">
-
-            ${titleCase(member.name)}
-
-        </h2>
-
-        <p class="member-company">
-
-            🏢 ${company}
-
-        </p>
-
-        <div class="member-tags">
-
-            <span class="tag chapter">
-
-                ${chapter}
-
-            </span>
-
-            <span class="tag industry">
-
-                ${industry}
-
-            </span>
-
-        </div>
-
-        <div class="member-actions">
-
-            <div class="actions-left">
-
-                <a
-                    class="btn whatsapp"
-                    href="https://wa.me/${cleanPhone(member.phone)}"
-                    target="_blank"
-                >
-
-                <span>💬</span>
-                <span>WhatsApp</span>
-
-                </a>
-
-                <a
-                    class="btn call"
-                    href="tel:${member.phone}"
-                >
-
-                <span>📞</span>
-                <span>Call</span>
-
-                </a>
-
-                <button
-                    class="btn profile profileButton"
-                    data-id="${member.id}"
-                >
-
-                <span>👤</span>
-                <span>View</span>
-
-                </button>
-
-            </div>
-
-        </div>
-
-        <div class="about-block">
-            <span class="about-inline" title="${escapeHtml(member.about || '')}">
-                ${oneLiner(member.about || '')}
-            </span>
-        </div>
-
-
-    </div>
-
-</div>
+</article>
 
 `;
 
@@ -156,70 +116,56 @@ function memberCard(member) {
 
 function attachEvents() {
 
-    document
-        .querySelectorAll(".profileButton")
-        .forEach(button => {
+    document.querySelectorAll(".profileButton").forEach(button => {
+        button.onclick = e => {
+            e.stopPropagation();
+            openById(button.dataset.id);
+        };
+    });
 
-            button.onclick = () => {
+    // The photo/name area is also clickable to open the profile.
+    document.querySelectorAll(".card-head").forEach(head => {
+        head.onclick = () => {
+            const card = head.closest(".card");
+            if (card) openById(card.dataset.id);
+        };
+    });
 
-                const member = currentMembers.find(
-                    m => String(m.id) === button.dataset.id
-                );
+}
 
-                if (member)
-                    openProfile(member);
-
-            };
-
-        });
-
+function openById(id) {
+    const member = currentMembers.find(m => String(m.id) === String(id));
+    if (member) openProfile(member);
 }
 
 function cleanPhone(phone) {
-
-    if (!phone)
-        return "";
-
-    return phone
-        .toString()
-        .replace(/\D/g, "");
-
+    if (!phone) return "";
+    return phone.toString().replace(/\D/g, "");
 }
 
-function getImage(member){
-
-    if(member.photo)
-        return member.photo;
-
+function getImage(member) {
+    if (member.photo) return member.photo;
     const mobile = cleanPhone(member.phone);
-
     return `/photos/${mobile}.png`;
-
 }
 
 function firstIndustry(value) {
-
-    if (!value)
-        return "Business";
-
-    return value
-        .split(";")[0]
-        .trim();
-
+    if (!value) return "Business";
+    return value.split(";")[0].trim();
 }
 
-function escapeHtml(str){
-    return String(str)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/\"/g, "&quot;")
-        .replace(/'/g, "&#39;");
-}
+function updateResultCount(shown) {
 
-function oneLiner(str, max=80){
-    if(!str) return "";
-    const single = String(str).replace(/\s+/g, ' ').trim();
-    if(single.length <= max) return escapeHtml(single);
-    return escapeHtml(single.slice(0, max).trim() + '...');
+    const total = getMembers().length;
+
+    const resultCount = document.getElementById("resultCount");
+    if (resultCount) {
+        resultCount.textContent = shown === total ? `· ${total}` : `· ${shown} of ${total}`;
+    }
+
+    const headCount = document.getElementById("headCount");
+    if (headCount) {
+        headCount.textContent = shown;
+    }
+
 }

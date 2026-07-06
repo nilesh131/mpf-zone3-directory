@@ -3,9 +3,11 @@ import {
     getActiveChapter,
     getActiveIndustry,
     getActiveMemberType,
+    getActiveSearch,
     setActiveChapter,
     setActiveIndustry,
     setActiveMemberType,
+    setActiveSearch,
     setFilteredMembers
 } from "../core/state.js";
 
@@ -99,6 +101,10 @@ export function initializeFilters() {
         setActiveChapter("ALL");
         setActiveIndustry("ALL");
         setActiveMemberType("ALL");
+        setActiveSearch("");
+
+        const searchInput = document.getElementById("searchInput");
+        if (searchInput) searchInput.value = "";
 
         document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
 
@@ -158,6 +164,24 @@ function addChip(container, text, type, count) {
 
 }
 
+// Fields the free-text search looks across.
+function matchesSearch(member, keyword) {
+    return [
+        member.name,
+        member.company,
+        member.industry,
+        member.chapter,
+        member.phone,
+        member.memberType
+    ].some(value =>
+        value != null &&
+        value.toString().toLowerCase().includes(keyword)
+    );
+}
+
+// Single filtering pipeline: chips AND free-text search are applied together,
+// so neither one clobbers the other. Both the chip handlers and the search box
+// funnel through here.
 export function applyFilters() {
 
     let members = getMembers();
@@ -165,6 +189,7 @@ export function applyFilters() {
     const chapter = getActiveChapter();
     const industry = getActiveIndustry();
     const memberType = getActiveMemberType();
+    const search = getActiveSearch().trim().toLowerCase();
 
     if (chapter !== "ALL") {
         members = members.filter(m => m.chapter === chapter);
@@ -187,6 +212,10 @@ export function applyFilters() {
 
     if (memberType !== "ALL") {
         members = members.filter(m => (m.memberType || "Other") === memberType);
+    }
+
+    if (search) {
+        members = members.filter(m => matchesSearch(m, search));
     }
 
     setFilteredMembers(members);

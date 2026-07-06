@@ -1,21 +1,4 @@
-export function whatsapp(phone){
-
-    if(!phone) return "#";
-
-    const number = phone.replace(/\D/g,"");
-
-    return `https://wa.me/91${number}`;
-
-}
-
-export function call(phone){
-
-    if(!phone) return "#";
-
-    return `tel:${phone}`;
-
-}
-
+// Link builders used by the profile drawer action buttons.
 export function email(address){
 
     if(!address) return "#";
@@ -41,23 +24,5 @@ export function maps(address){
     if(!address) return "#";
 
     return `https://www.google.com/maps/search/${encodeURIComponent(address)}`;
-
-}
-
-export function share(member){
-
-    if(navigator.share){
-
-        navigator.share({
-
-            title:member.name,
-
-            text:member.company,
-
-            url:window.location.href
-
-        });
-
-    }
 
 }
