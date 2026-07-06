@@ -30,7 +30,7 @@
   },
   {
     "id": 2,
-    "name": "RAHUL RAMESH BHUTADA",
+    "name": "Rahul Ramesh Bhutada",
     "phone": "8956889949",
     "chapter": "Infinity",
     "memberType": "Business Owner",
@@ -296,7 +296,7 @@
   },
   {
     "id": 12,
-    "name": "sandesh modani",
+    "name": "Sandesh Modani",
     "phone": "9881853397",
     "chapter": "Uptown",
     "memberType": "Business Owner",
@@ -2638,30 +2638,6 @@
   },
   {
     "id": 93,
-    "name": "Santosh Somani",
-    "phone": "9987540896",
-    "chapter": "Infinity",
-    "memberType": "Employed Professional",
-    "company": "Wipro Pari",
-    "industry": "Finance, Tax & Insurance",
-    "about": "",
-    "services": [
-      "Finance"
-    ],
-    "lookingFor": [
-      "Introduction with Industry Professionals"
-    ],
-    "idealReferral": [
-      "Finance Professionals"
-    ],
-    "canHelp": [
-      "Finance domain expertise"
-    ],
-    "photo": "/photos/9987540896.png",
-    "avatar": "default-avatar.png"
-  },
-  {
-    "id": 94,
     "name": "Sanket Shrinivas Kalantri",
     "phone": "7620655622",
     "chapter": "PCMC",
@@ -2689,7 +2665,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 95,
+    "id": 94,
     "name": "PRACHI LADDHA",
     "phone": "9424637721",
     "chapter": "Uptown",
@@ -2736,7 +2712,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 96,
+    "id": 95,
     "name": "Anand Suresh Jhanwar",
     "phone": "8208185264",
     "chapter": "PCMC",
@@ -2765,7 +2741,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 97,
+    "id": 96,
     "name": "Amit Dilipkumar Innani",
     "phone": "9959148738",
     "chapter": "West",
@@ -2792,7 +2768,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 98,
+    "id": 97,
     "name": "Dr.Poonam Kushal Rathi",
     "phone": "8861155008",
     "chapter": "West",
@@ -2817,7 +2793,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 99,
+    "id": 98,
     "name": "Unnati Aditya Birla",
     "phone": "9933847700",
     "chapter": "Infinity",
@@ -2854,7 +2830,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 100,
+    "id": 99,
     "name": "Girish Kisanlal Rathi",
     "phone": "9822652098",
     "chapter": "West",
@@ -2881,7 +2857,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 101,
+    "id": 100,
     "name": "Sandhya Kabra",
     "phone": "9823900351",
     "chapter": "PCMC",
@@ -2905,7 +2881,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 102,
+    "id": 101,
     "name": "Dr Kushal Somani",
     "phone": "9834172124",
     "chapter": "Infinity",
@@ -2930,7 +2906,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 103,
+    "id": 102,
     "name": "Raj Tarachandji Heda",
     "phone": "9503237456",
     "chapter": "Uptown",
@@ -2955,7 +2931,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 104,
+    "id": 103,
     "name": "Pavan Pandurang Lahoti",
     "phone": "9890421482",
     "chapter": "Uptown",
@@ -2993,7 +2969,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 105,
+    "id": 104,
     "name": "Poonam Pankaj Chandak",
     "phone": "7875629628",
     "chapter": "Uptown",
@@ -3029,7 +3005,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 106,
+    "id": 105,
     "name": "Sonam toshniwal",
     "phone": "8619993866",
     "chapter": "Infinity",
@@ -3059,7 +3035,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 107,
+    "id": 106,
     "name": "Aditya Abhay Birla",
     "phone": "9336600779",
     "chapter": "Infinity",
@@ -3108,7 +3084,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 108,
+    "id": 107,
     "name": "Chirag Sandip Lohiya",
     "phone": "9860005666",
     "chapter": "PCMC",
@@ -3132,7 +3108,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 109,
+    "id": 108,
     "name": "Akash Daga",
     "phone": "9740071444",
     "chapter": "Uptown",
@@ -3186,7 +3162,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 110,
+    "id": 109,
     "name": "Ajab Maheshwari",
     "phone": "8861975577",
     "chapter": "Uptown",
@@ -3210,7 +3186,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 111,
+    "id": 110,
     "name": "Ritesh Ashok Laddha",
     "phone": "9112255573",
     "chapter": "PCMC",
@@ -3232,7 +3208,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 112,
+    "id": 111,
     "name": "Sunil kasat",
     "phone": "9167916888",
     "chapter": "West",
@@ -3258,7 +3234,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 113,
+    "id": 112,
     "name": "Himali Mundra",
     "phone": "9226256918",
     "chapter": "PCMC",
@@ -3288,7 +3264,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 114,
+    "id": 113,
     "name": "Ganesh Gattani",
     "phone": "9850609100",
     "chapter": "PCMC",
@@ -3312,7 +3288,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 115,
+    "id": 114,
     "name": "Swati Pratik Charkha",
     "phone": "9970771695",
     "chapter": "PCMC",
@@ -3338,7 +3314,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 116,
+    "id": 115,
     "name": "Bhavana Jaju",
     "phone": "7447424548",
     "chapter": "Uptown",
@@ -3360,7 +3336,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 117,
+    "id": 116,
     "name": "Meet Anand Malpani",
     "phone": "7709737990",
     "chapter": "West",
@@ -3384,7 +3360,7 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 118,
+    "id": 117,
     "name": "Gaurav Girdhardas mall",
     "phone": "9822503541",
     "chapter": "Infinity",
@@ -3408,14 +3384,14 @@
     "avatar": "default-avatar.png"
   },
   {
-    "id": 119,
+    "id": 118,
     "name": "Rishikesh Heda",
     "phone": "7875559285",
     "chapter": "PCMC",
     "memberType": "Business Owner",
     "company": "Property Resolve",
     "industry": "HR, Legal & Consulting",
-    "about": "PropertyResolve (propertyresolve.in) is a Pune-based legal practice specializing in property law, conveyancing, and real estate compliance across Maharashtra. We help individuals, developers, housing societies, and businesses navigate the legal complexities of property transactions with clarity and confidence.\nWebsite: propertyresolve.in",
+    "about": "PropertyResolve (propertyresolve.in) is a Pune-based legal practice specializing in property law, conveyancing, and real estate compliance across Maharashtra. We help individuals, developers, housing societies, and businesses navigate the legal complexities of property transactions with clarity and confidence.\nWebsite: www.propertyresolve.in",
     "services": [
       "Property Transfer and Litigation"
     ],
@@ -3433,5 +3409,78 @@
     ],
     "photo": "/photos/7875559285.png",
     "avatar": "default-avatar.png"
+  },
+  {
+    "id": 119,
+    "name": "Dr.Sushma Gilada",
+    "phone": "9766978278",
+    "photo": "/photos/9766978278.png",
+    "avatar": "default-avatar.png",
+    "chapter": "Infinity",
+    "industry": "Healthcare & Wellness",
+    "memberType": "Business Owner",
+    "company": "House Of Smiles Dental Care",
+    "about": "https://www.houseofsmilesdentalcare.in/",
+    "services": [
+      "All dental Services"
+    ],
+    "lookingFor": [
+      "Anyone who is looking for trusted dentist.. Connect to schools and corporate offices for dental camps"
+    ],
+    "idealReferral": [
+      "Real Estate Industry"
+    ],
+    "canHelp": [
+      "I offer all dental services"
+    ]
+  },
+  {
+    "id": 120,
+    "name": "Niraj Rameshchandra Rathi",
+    "phone": "9422858441",
+    "photo": "/photos/9422858441.png",
+    "avatar": "default-avatar.png",
+    "chapter": "West",
+    "industry": "Finance, Tax & Insurance",
+    "memberType": "Employed Professional",
+    "company": "JM Financial Services Ltd",
+    "about": "Financial Services, IEPF Related Work of Old Physical Shares",
+    "services": [
+      "Theta Scalping in Options"
+    ],
+    "lookingFor": [
+      "Help each other & Grow together in Business"
+    ],
+    "idealReferral": [
+      "Financial Services, Old Shares Recovery"
+    ],
+    "canHelp": [
+      "Trusted Financial Service with 20+ Years Experience ml"    
+    ]
+  },
+  {
+    "id": 121,
+    "name": "Pratik Ghanshyam Rathi",
+    "phone": "7038406439",
+    "photo": "/photos/7038406439.png",
+    "avatar": "default-avatar.png",
+    "chapter": "Infinity",
+    "industry": "Finance, Tax & Insurance",
+    "memberType": "Employed Professional",
+    "company": "KHAJANA FUNDS",
+    "about": "https://khajanagroup.com/",
+    "services": [
+      "Mutual Fund, Equity"
+    ],
+    "lookingFor": [
+      "CEO, Business owner and HR of companies for Mutual Fund and Equity Investment"
+    ],
+    "idealReferral": [
+      "Business owner"
+    ],
+    "canHelp": [
+      "Wealth management",
+      "Tax saver investment plans"
+    ]
   }
 ]
