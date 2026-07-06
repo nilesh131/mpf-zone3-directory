@@ -10,8 +10,6 @@ export function renderDashboard() {
 
     animate("industryCount", industryCount(members));
 
-    animate("cityCount", unique(members,"city"));
-
 }
 
 function unique(data,key){
