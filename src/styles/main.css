@@ -283,10 +283,10 @@ footer{max-width:var(--maxw);margin:0 auto;padding:28px 22px 44px;color:var(--mu
 /* ---------------- Responsive ---------------- */
 @media (max-width:720px){
     .topbar-in{flex-wrap:wrap;gap:12px;padding:11px 16px;align-items:center}
-    .brand{flex:0 1 auto;gap:9px;min-width:0}
-    .saved-toggle{order:1;flex:0 0 auto;margin-left:auto}
-    .search{order:3;flex-basis:100%;max-width:none;margin:0}
-    .count-pill{order:4;flex:0 0 auto}
+    .brand{order:1;flex:1 1 100%;gap:9px;min-width:0}
+    .saved-toggle{order:2;flex:0 0 auto;margin-left:auto}
+    .search{order:2;flex:1 1 min(100%,calc(100% - 130px));min-width:0;max-width:none;margin:0}
+    .count-pill{order:3;flex:0 0 auto}
     .wrap{padding:0 16px}
     #memberGrid{grid-template-columns:1fr;gap:14px}
     .brand-logo{height:48px}
