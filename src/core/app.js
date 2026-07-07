@@ -93,11 +93,11 @@ ${SPRITE}
 
     <span class="eyebrow">Mahesh Professional Forum</span>
 
-    <h1 class="wordmark">Member <i>Directory</i></h1>
+    <h1 class="wordmark">Referral Connect <i>Member Directory</i></h1>
 
     <span class="tagline">Connect · Collaborate · Grow</span>
 
-    <p class="hero-sub">The Zone&nbsp;3 business referral network — find a member, see what they offer, and connect on WhatsApp in one tap.</p>
+    <p class="hero-sub">Referral Connect brings together like-minded business professionals to build lasting relationships, exchange quality referrals, and create new business opportunities. Through meaningful networking and collaboration, we empower members to grow, learn, and succeed together.</p>
 
     <div class="stats">
 
