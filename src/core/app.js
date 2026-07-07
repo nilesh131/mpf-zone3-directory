@@ -57,10 +57,10 @@ ${SPRITE}
         <div class="brand">
             <img class="brand-logo mpf" src="/photos/MFCT.png" alt="Mahesh Professional Forum">
             <span class="brand-sep"></span>
-            <img class="brand-logo" src="/photos/MPBN.png" alt="BizConnect">
-            <span class="brand-sep"></span>
             <img class="brand-logo" src="/photos/BizConnect.png" alt="BizConnect">
-        </div>
+            <span class="brand-sep"></span>
+            <img class="brand-logo" src="/photos/MPBN.png" alt="BizConnect">
+            </div>
 
         <div class="search">
             <svg class="ico"><use href="#i-search"/></svg>
