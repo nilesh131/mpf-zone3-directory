@@ -103,11 +103,6 @@ ${SPRITE}
             <svg class="ico"><use href="#i-star"/></svg>Saved
         </button>
 
-        <span class="count-pill">
-            <svg class="ico"><use href="#i-users"/></svg>
-            <span id="headCount" class="tnum">0</span>
-        </span>
-
     </div>
 
 </header>
