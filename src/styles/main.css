@@ -175,7 +175,7 @@ body.modal-open{overflow:hidden}
     transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
 }
 .card:hover{transform:translateY(-3px);box-shadow:0 6px 14px rgba(20,41,94,.08),0 18px 40px rgba(20,41,94,.10);border-color:var(--border-strong)}
-.card-head{display:flex;gap:14px;align-items:center;padding-right:4px;cursor:pointer}
+.card-head{position:relative;display:flex;gap:14px;align-items:center;padding-right:60px;cursor:pointer}
 .avatar{
     width:94px;height:94px;border-radius:18px;flex:none;display:grid;place-items:center;
     background:linear-gradient(155deg,var(--navy-050),color-mix(in srgb,var(--navy-050) 40%,var(--surface)));
@@ -283,10 +283,10 @@ footer{max-width:var(--maxw);margin:0 auto;padding:28px 22px 44px;color:var(--mu
 /* ---------------- Responsive ---------------- */
 @media (max-width:720px){
     .topbar-in{flex-wrap:wrap;gap:12px;padding:11px 16px;align-items:center}
-    .brand{flex:1 1 auto;gap:9px;min-width:0}
-    .saved-toggle{order:2;flex:0 0 auto;margin-left:auto}
-    .count-pill{order:4;flex:0 0 auto}
+    .brand{flex:0 1 auto;gap:9px;min-width:0}
+    .saved-toggle{order:1;flex:0 0 auto;margin-left:auto}
     .search{order:3;flex-basis:100%;max-width:none;margin:0}
+    .count-pill{order:4;flex:0 0 auto}
     .wrap{padding:0 16px}
     #memberGrid{grid-template-columns:1fr;gap:14px}
     .brand-logo{height:48px}
