@@ -83,7 +83,7 @@ ${SPRITE}
             <img class="brand-logo" src="/photos/BizConnect.png" alt="BizConnect">
             <span class="brand-sep"></span>
             <img class="brand-logo" src="/photos/MPBN.png" alt="BizConnect">
-            </div>
+        </div>
 
         <div class="search">
             <svg class="ico"><use href="#i-search"/></svg>

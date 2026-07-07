@@ -282,16 +282,20 @@ footer{max-width:var(--maxw);margin:0 auto;padding:28px 22px 44px;color:var(--mu
 
 /* ---------------- Responsive ---------------- */
 @media (max-width:720px){
-    .topbar-in{flex-wrap:wrap;gap:12px;padding:11px 16px;align-items:center}
-    .brand{order:1;flex:1 1 100%;gap:9px;min-width:0}
-    .saved-toggle{order:2;flex:0 0 auto;margin-left:auto}
+    .topbar-in{flex-wrap:wrap;gap:12px;padding:11px 16px;align-items:center;justify-content:center}
+    .brand{order:1;flex:1 1 100%;justify-content:center;gap:9px;min-width:0}
+    .saved-toggle{order:2;flex:0 0 auto;margin-left:12px;margin-top:0}
     .search{order:2;flex:1 1 min(100%,calc(100% - 130px));min-width:0;max-width:none;margin:0}
-    .count-pill{order:3;flex:0 0 auto}
+    .count-pill{order:3;flex:1 1 100%;justify-content:center;margin:0 auto}
     .wrap{padding:0 16px}
     #memberGrid{grid-template-columns:1fr;gap:14px}
     .brand-logo{height:48px}
     .brand-logo.mpf{height:46px}
     .brand-sep{height:34px}
+}
+@media (max-width:520px){
+    .saved-toggle{padding:0 10px;font-size:12px}
+    .search input{height:38px;font-size:13px;padding:0 14px 0 40px}
 }
 @media (max-width:430px){
     /* Keep the two logos + count on one tidy row on small phones */
@@ -300,6 +304,8 @@ footer{max-width:var(--maxw);margin:0 auto;padding:28px 22px 44px;color:var(--mu
     .brand-logo.mpf{height:40px}
     .brand-sep{height:30px}
     .topbar-in{gap:10px}
+    .saved-toggle{padding:0 10px;font-size:12px}
+    .search input{height:36px;font-size:12px;padding:0 12px 0 38px}
 }
 @media (prefers-reduced-motion:reduce){
     *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
