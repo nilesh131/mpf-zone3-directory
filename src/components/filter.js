@@ -4,10 +4,13 @@ import {
     getActiveIndustry,
     getActiveMemberType,
     getActiveSearch,
+    getActiveSavedOnly,
+    isSavedMember,
     setActiveChapter,
     setActiveIndustry,
     setActiveMemberType,
     setActiveSearch,
+    setActiveSavedOnly,
     setFilteredMembers
 } from "../core/state.js";
 
@@ -216,6 +219,10 @@ export function applyFilters() {
 
     if (search) {
         members = members.filter(m => matchesSearch(m, search));
+    }
+
+    if (getActiveSavedOnly()) {
+        members = members.filter(m => isSavedMember(m.id));
     }
 
     setFilteredMembers(members);

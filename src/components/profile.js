@@ -1,4 +1,5 @@
 import { website } from "./contact.js";
+import { isSavedMember, toggleSavedMember } from "../core/state.js";
 import { titleCase, initials, whatsappNumber, escapeHtml as esc } from "../utils/helpers.js";
 
 function cleanPhone(phone){
@@ -130,6 +131,18 @@ function closeProfile(){
 
 function bindButtons(member){
 
+    const btnSave = document.getElementById("btnSaveProfile");
+    if (btnSave) {
+        btnSave.onclick = () => {
+            const saved = toggleSavedMember(member.id);
+            btnSave.classList.toggle("active", saved);
+            btnSave.setAttribute("aria-pressed", saved ? "true" : "false");
+            btnSave.title = saved ? "Remove from saved" : "Save to favorites";
+            btnSave.innerHTML = `<svg class="ico"><use href="#i-star"/></svg>${saved ? "Saved" : "Save"}`;
+            window.dispatchEvent(new Event("favorites-changed"));
+        };
+    }
+
     const btnWebsite = document.getElementById("btnWebsite");
     if (btnWebsite) {
         btnWebsite.onclick = () => {
@@ -187,6 +200,17 @@ function createProfile(member){
     <a class="btn btn-call" href="tel:${esc(String(member.phone || ""))}">
         <svg class="ico"><use href="#i-phone"/></svg>Call
     </a>
+
+    <button
+        class="btn btn-sec btn-save-profile${isSavedMember(member.id) ? " active" : ""}"
+        id="btnSaveProfile"
+        type="button"
+        aria-pressed="${isSavedMember(member.id)}"
+        title="${isSavedMember(member.id) ? "Remove from saved" : "Save to favorites"}"
+        style="grid-column:1/-1"
+    >
+        <svg class="ico"><use href="#i-star"/></svg>${isSavedMember(member.id) ? "Saved" : "Save"}
+    </button>
 
     ${webUrl ? `
     <button class="btn btn-line" id="btnWebsite" style="grid-column:1/-1">

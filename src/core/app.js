@@ -1,9 +1,10 @@
 import { loadMembers } from "./data.js";
-import { setMembers } from "./state.js";
+import { setMembers, getActiveSavedOnly, setActiveSavedOnly } from "./state.js";
 import { initializeSearch } from "../components/search.js";
-import { initializeFilters } from "../components/filter.js";
+import { initializeFilters, applyFilters } from "../components/filter.js";
 import { initializeProfile } from "../components/profile.js";
 import { renderDashboard } from "../components/dashboard.js";
+import { renderSavedToggle } from "../components/saved.js";
 
 export async function initializeApp() {
 
@@ -21,9 +22,31 @@ export async function initializeApp() {
 
     initializeSearch();
 
+    initializeSavedControls();
+
     // initializeFilters() already renders the grid via applyFilters(),
     // so no extra renderMembers() call is needed here.
 
+}
+
+function initializeSavedControls() {
+    const button = document.getElementById("savedToggle");
+    if (!button) return;
+
+    button.onclick = () => {
+        setActiveSavedOnly(!getActiveSavedOnly());
+        applyFilters();
+        renderSavedToggle();
+    };
+
+    window.addEventListener("favorites-changed", () => {
+        renderSavedToggle();
+        if (getActiveSavedOnly()) {
+            applyFilters();
+        }
+    });
+
+    renderSavedToggle();
 }
 
 // Inline SVG sprite — line icons referenced everywhere via <use href="#id">.
@@ -75,6 +98,10 @@ ${SPRITE}
                 aria-label="Search members" />
             <div id="searchSuggest" class="suggest" role="listbox"></div>
         </div>
+
+        <button id="savedToggle" class="btn saved-toggle" type="button" aria-pressed="false">
+            <svg class="ico"><use href="#i-star"/></svg>Saved
+        </button>
 
         <span class="count-pill">
             <svg class="ico"><use href="#i-users"/></svg>

@@ -206,6 +206,27 @@ body.modal-open{overflow:hidden}
 .btn-sec{background:var(--surface-2);border-color:var(--border-strong);color:var(--navy)}
 .btn-sec:hover{border-color:var(--navy-600);background:var(--navy-050)}
 
+.saved-toggle{
+    display:inline-flex;align-items:center;gap:8px;padding:0 14px;height:40px;
+    border-radius:11px;border:1px solid var(--border-strong);
+    background:var(--surface-2);color:var(--navy);font-weight:700;font-size:13px;
+}
+.saved-toggle.active{
+    background:var(--navy);
+    color:#fff;
+    border-color:var(--navy);
+}
+
+.save-button{
+    position:absolute;top:16px;right:16px;width:42px;height:42px;
+    border-radius:14px;border:1px solid var(--border-strong);
+    background:var(--surface-2);color:var(--muted);
+    display:grid;place-items:center;
+    transition:.15s;
+}
+.save-button:hover{background:var(--navy-050);color:var(--navy)}
+.save-button.saved{background:var(--accent);color:#fff;border-color:transparent}
+
 /* ---------------- Empty state ---------------- */
 .empty-state{grid-column:1/-1;text-align:center;padding:70px 20px;color:var(--muted)}
 .empty-state .empty-icon{font-size:40px;margin-bottom:10px}

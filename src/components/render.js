@@ -1,5 +1,5 @@
 import { openProfile } from "./profile.js";
-import { getMembers } from "../core/state.js";
+import { getMembers, isSavedMember, toggleSavedMember } from "../core/state.js";
 import { titleCase, initials, whatsappNumber, escapeHtml } from "../utils/helpers.js";
 
 let currentMembers = [];
@@ -85,6 +85,16 @@ function memberCard(member) {
         <span class="tag type">${escapeHtml(type)}</span>
     </div>
 
+    <button
+        class="save-button${isSavedMember(member.id) ? " saved" : ""}"
+        type="button"
+        data-id="${member.id}"
+        aria-pressed="${isSavedMember(member.id)}"
+        title="${isSavedMember(member.id) ? "Remove from saved" : "Save to favorites"}"
+    >
+        <svg class="ico"><use href="#i-star"/></svg>
+    </button>
+
     <p class="card-about">${about}</p>
 
     <div class="card-actions">
@@ -115,6 +125,17 @@ function memberCard(member) {
 }
 
 function attachEvents() {
+
+    document.querySelectorAll(".save-button").forEach(button => {
+        button.onclick = e => {
+            e.stopPropagation();
+            const saved = toggleSavedMember(button.dataset.id);
+            button.classList.toggle("saved", saved);
+            button.setAttribute("aria-pressed", saved ? "true" : "false");
+            button.title = saved ? "Remove from saved" : "Save to favorites";
+            window.dispatchEvent(new Event("favorites-changed"));
+        };
+    });
 
     document.querySelectorAll(".profileButton").forEach(button => {
         button.onclick = e => {
