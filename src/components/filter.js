@@ -49,7 +49,11 @@ export function initializeFilters() {
     });
 
     const memberTypes = unique(Object.keys(typeCounts));
-    const chapters = unique(Object.keys(chapterCounts));
+    const chapters = unique(Object.keys(chapterCounts)).sort((a, b) => {
+        if (a === "Other") return 1;
+        if (b === "Other") return -1;
+        return a.localeCompare(b, undefined, { sensitivity: "base" });
+    });
     const industries = unique(Object.keys(industryCounts));
 
     container.innerHTML = `

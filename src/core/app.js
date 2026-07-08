@@ -82,7 +82,7 @@ ${SPRITE}
             <span class="brand-sep"></span>
             <img class="brand-logo" src="/photos/BizConnect.png" alt="BizConnect">
             <span class="brand-sep"></span>
-            <img class="brand-logo" src="/photos/MPBN.png" alt="BizConnect">
+            <img class="brand-logo" src="/photos/ReferralConnect.png" alt="Referral Connect 2026">
         </div>
 
         <div class="search">
@@ -158,7 +158,8 @@ ${SPRITE}
 
 <footer>
     <div class="foot-logos">
-        <img src="/photos/ReferralConnect.png" alt="Referral Connect">
+        <img src="/photos/ReferralConnect.png" alt="Referral Connect 2026">
+        <img src="/photos/MPBN.png" alt="MPBN">
     </div>
     <div class="foot-text">In association with Referral Connect &nbsp;·&nbsp; A Mahesh Professional Forum initiative</div>
 </footer>
