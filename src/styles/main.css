@@ -141,6 +141,7 @@ body.modal-open{overflow:hidden}
 .filter-badge{background:var(--accent);color:#fff;font-size:11px;font-weight:800;border-radius:999px;min-width:18px;height:18px;display:inline-grid;place-items:center;padding:0 5px}
 .filter-badge[hidden]{display:none}
 .active-pills{display:flex;gap:7px;flex-wrap:wrap;flex:1;min-width:0}
+.active-pills:empty{display:none}
 .pill{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 6px 0 12px;border-radius:999px;background:var(--navy);color:#fff;font-size:12.5px;font-weight:650}
 .pill button{border:0;background:rgba(255,255,255,.22);color:#fff;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;line-height:1;cursor:pointer}
 .pill button:hover{background:rgba(255,255,255,.38)}
@@ -322,6 +323,11 @@ footer{max-width:var(--maxw);margin:0 auto;padding:28px 22px 44px;color:var(--mu
     .brand-sep{height:32px}
     .avatar{width:72px;height:72px;font-size:24px;border-radius:14px}
     .card-head{padding-right:50px}
+    /* Filter bar: keep [Filters][count] on line 1, drop the removable pills to
+       their own full-width line so they never collide with the result count. */
+    .filterbar .filter-btn{order:1}
+    .filterbar .result-count{order:2}
+    .filterbar .active-pills{order:3;flex:1 1 100%;min-width:0}
 }
 @media (max-width:520px){
     .saved-toggle{padding:0 10px;font-size:12px}
