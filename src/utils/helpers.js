@@ -19,6 +19,37 @@ export function initials(name){
         .toUpperCase() || "?";
 }
 
+// All member fields worth searching, flattened to one lowercase string.
+// Includes the referral fields (services / lookingFor / canHelp / idealReferral /
+// about) so a search like "solar" or "GST" surfaces who can actually help.
+export function memberSearchText(member){
+    const parts = [
+        member.name,
+        member.company,
+        member.industry,
+        member.chapter,
+        member.phone,
+        member.memberType,
+        member.about,
+        member.services,
+        member.lookingFor,
+        member.canHelp,
+        member.idealReferral
+    ];
+    return parts
+        .map(p => Array.isArray(p) ? p.join(" ") : p)
+        .filter(v => v != null && v !== "")
+        .join(" ")
+        .toLowerCase();
+}
+
+// True when a string is nothing but a bare URL (so we can hide it as body text
+// and surface it as a Website button instead).
+export function isBareUrl(str){
+    if(!str) return false;
+    return /^(https?:\/\/|www\.)\S+$/i.test(String(str).trim());
+}
+
 // Indian 10-digit numbers need the 91 country code for wa.me links to resolve.
 export function whatsappNumber(phone){
     const n = String(phone || "").replace(/\D/g, "");

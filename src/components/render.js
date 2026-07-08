@@ -1,6 +1,6 @@
 import { openProfile } from "./profile.js";
-import { getMembers, isSavedMember, toggleSavedMember } from "../core/state.js";
-import { titleCase, initials, whatsappNumber, escapeHtml } from "../utils/helpers.js";
+import { isSavedMember, toggleSavedMember, getActiveSavedOnly } from "../core/state.js";
+import { titleCase, initials, whatsappNumber, escapeHtml, isBareUrl } from "../utils/helpers.js";
 
 let currentMembers = [];
 
@@ -8,21 +8,21 @@ export function renderMembers(members) {
 
     currentMembers = members;
 
-    updateResultCount(members ? members.length : 0);
-
     const grid = document.getElementById("memberGrid");
 
     if (!grid) return;
 
     if (!members || members.length === 0) {
 
+        const savedEmpty = getActiveSavedOnly();
+
         grid.innerHTML = `
             <div class="empty-state">
                 <div class="empty-icon">
-                    <svg class="ico" style="width:40px;height:40px;color:var(--muted-2)"><use href="#i-search"/></svg>
+                    <svg class="ico" style="width:40px;height:40px;color:var(--muted-2)"><use href="#${savedEmpty ? "i-star" : "i-search"}"/></svg>
                 </div>
-                <h2>No members found</h2>
-                <p>Try a different search or clear the filters.</p>
+                <h2>${savedEmpty ? "No saved members yet" : "No members found"}</h2>
+                <p>${savedEmpty ? "Tap the star on any card to save members here." : "Try a different search or clear the filters."}</p>
             </div>
         `;
 
@@ -41,17 +41,21 @@ function memberCard(member) {
 
     const image = getImage(member);
 
-    const name = member.name;
+    const name = titleCase(member.name);
 
     const company = member.company || "-";
 
-    const industry = firstIndustry(member.industry);
+    const industries = allIndustries(member.industry);
 
     const chapter = member.chapter || "MPF";
 
     const type = member.memberType || "Other";
 
-    const about = escapeHtml(String(member.about || "").replace(/\s+/g, " ").trim());
+    // A bare URL reads as noise in the card body; the profile drawer surfaces it
+    // as a proper Website button instead.
+    const aboutRaw = member.about;
+
+    const about = escapeHtml(String(aboutRaw || "").replace(/\s+/g, " ").trim());
 
     const init = escapeHtml(initials(member.name));
 
@@ -81,7 +85,7 @@ function memberCard(member) {
 
     <div class="card-chips">
         <span class="tag ch">${escapeHtml(chapter)}</span>
-        <span class="tag ind">${escapeHtml(industry)}</span>
+        ${industries.map(i => `<span class="tag ind">${escapeHtml(i)}</span>`).join("")}
         <span class="tag type">${escapeHtml(type)}</span>
     </div>
 
@@ -90,6 +94,7 @@ function memberCard(member) {
         type="button"
         data-id="${member.id}"
         aria-pressed="${isSavedMember(member.id)}"
+        aria-label="${isSavedMember(member.id) ? "Remove from saved" : "Save to favorites"}"
         title="${isSavedMember(member.id) ? "Remove from saved" : "Save to favorites"}"
     >
         <svg class="ico"><use href="#i-star"/></svg>
@@ -167,26 +172,10 @@ function cleanPhone(phone) {
 function getImage(member) {
     if (member.photo) return member.photo;
     const mobile = cleanPhone(member.phone);
-    return `/photos/${mobile}.png`;
+    return `/photos/${mobile}.webp`;
 }
 
-function firstIndustry(value) {
-    if (!value) return "Business";
-    return value.split(";")[0].trim();
-}
-
-function updateResultCount(shown) {
-
-    const total = getMembers().length;
-
-    const resultCount = document.getElementById("resultCount");
-    if (resultCount) {
-        resultCount.textContent = shown === total ? `· ${total}` : `· ${shown} of ${total}`;
-    }
-
-    const headCount = document.getElementById("headCount");
-    if (headCount) {
-        headCount.textContent = shown;
-    }
-
+function allIndustries(value) {
+    if (!value) return ["Business"];
+    return value.split(";").map(i => i.trim()).filter(Boolean);
 }

@@ -9,22 +9,45 @@ import {
     setActiveChapter,
     setActiveIndustry,
     setActiveMemberType,
+    toggleActiveChapter,
+    toggleActiveIndustry,
+    toggleActiveMemberType,
     setActiveSearch,
-    setActiveSavedOnly,
     setFilteredMembers
 } from "../core/state.js";
 
 import { renderMembers } from "./render.js";
+import { memberSearchText, escapeHtml } from "../utils/helpers.js";
 
 function unique(values) {
     return [...new Set(values.filter(Boolean))].sort();
 }
 
+// The active chip values for a given filter dimension (now returns an array).
+function activeValue(type) {
+    if (type === "chapter") return getActiveChapter();
+    if (type === "industry") return getActiveIndustry();
+    if (type === "memberType") return getActiveMemberType();
+    return [];
+}
+
+function setActiveValue(type, value) {
+    if (type === "chapter") setActiveChapter(value);
+    else if (type === "industry") setActiveIndustry(value);
+    else if (type === "memberType") setActiveMemberType(value);
+}
+
+function toggleActiveValue(type, value) {
+    if (type === "chapter") toggleActiveChapter(value);
+    else if (type === "industry") toggleActiveIndustry(value);
+    else if (type === "memberType") toggleActiveMemberType(value);
+}
+
 export function initializeFilters() {
 
-    const container = document.getElementById("filterContainer");
+    const panel = document.getElementById("filterPanel");
 
-    if (!container) return;
+    if (!panel) return;
 
     const members = getMembers();
 
@@ -56,7 +79,7 @@ export function initializeFilters() {
     });
     const industries = unique(Object.keys(industryCounts));
 
-    container.innerHTML = `
+    panel.innerHTML = `
 
 <div class="filter-section">
 
@@ -105,23 +128,27 @@ export function initializeFilters() {
     industries.forEach(i => addChip(industryContainer, i, "industry", industryCounts[i]));
 
     document.getElementById("clearFilters").onclick = () => {
-        setActiveChapter("ALL");
-        setActiveIndustry("ALL");
-        setActiveMemberType("ALL");
+        setActiveChapter([]);
+        setActiveIndustry([]);
+        setActiveMemberType([]);
         setActiveSearch("");
 
         const searchInput = document.getElementById("searchInput");
         if (searchInput) searchInput.value = "";
 
-        document.querySelectorAll(".filter-chip").forEach(c => c.classList.remove("active"));
-
-        // activate the ALL chips
-        document.querySelectorAll(".filter-chip").forEach(c => {
-            if (c.dataset && c.dataset.value === "ALL") c.classList.add("active");
-        });
-
         applyFilters();
     };
+
+    // Collapsible "Filters" bar toggle.
+    const toggle = document.getElementById("filterToggle");
+    const bar = document.getElementById("filterbar");
+    if (toggle && bar) {
+        toggle.onclick = () => {
+            const open = bar.classList.toggle("open");
+            panel.hidden = !open;
+            toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        };
+    }
 
     applyFilters();
 }
@@ -146,44 +173,82 @@ function addChip(container, text, type, count) {
     chip.appendChild(badge);
 
     chip.onclick = () => {
-
-        if (type === "chapter") {
-            setActiveChapter(text);
-        } else if (type === "industry") {
-            setActiveIndustry(text);
-        } else if (type === "memberType") {
-            setActiveMemberType(text);
+        if (text === "ALL") {
+            // Clear all filters for this dimension
+            setActiveValue(type, []);
+        } else {
+            // Toggle this specific filter
+            toggleActiveValue(type, text);
         }
-
         applyFilters();
-
-        // mark active only within the same section (same parent)
-        Array.from(container.children).forEach(c => c.classList.remove("active"));
-
-        chip.classList.add("active");
-
     };
 
-    // set ALL as active by default
-    if (text === "ALL") chip.classList.add("active");
+    // Set initial active state
+    if (text === "ALL" && activeValue(type).length === 0) {
+        chip.classList.add("active");
+    } else if (text !== "ALL" && activeValue(type).includes(text)) {
+        chip.classList.add("active");
+    }
 
     container.appendChild(chip);
 
 }
 
-// Fields the free-text search looks across.
+// Reflect the current active filter values onto the chips (single source of truth
+// is state, so pills and chips never drift apart).
+function syncChips() {
+    document.querySelectorAll(".filter-chip").forEach(chip => {
+        let active = false;
+        if (chip.dataset.value === "ALL") {
+            // ALL is active when no other filters are selected for that dimension
+            active = activeValue(chip.dataset.type).length === 0;
+        } else {
+            active = activeValue(chip.dataset.type).includes(chip.dataset.value);
+        }
+        chip.classList.toggle("active", active);
+    });
+}
+
+// Update the collapsible bar: active-filter badge, removable pills, and result count.
+function updateFilterChrome(shown, total) {
+
+    const dims = [];
+    
+    getActiveMemberType().forEach(v => dims.push({ type: "memberType", value: v }));
+    getActiveChapter().forEach(v => dims.push({ type: "chapter", value: v }));
+    getActiveIndustry().forEach(v => dims.push({ type: "industry", value: v }));
+
+    const badge = document.getElementById("filterBadge");
+    if (badge) {
+        badge.textContent = String(dims.length);
+        badge.hidden = dims.length === 0;
+    }
+
+    const pills = document.getElementById("activePills");
+    if (pills) {
+        pills.innerHTML = dims.map(d =>
+            `<span class="pill">${escapeHtml(d.value)}<button type="button" data-type="${d.type}" data-value="${escapeHtml(d.value)}" aria-label="Remove ${escapeHtml(d.value)} filter">✕</button></span>`
+        ).join("");
+        pills.querySelectorAll("button").forEach(btn => {
+            btn.onclick = () => {
+                toggleActiveValue(btn.dataset.type, btn.dataset.value);
+                applyFilters();
+            };
+        });
+    }
+
+    const rc = document.getElementById("resultCount");
+    if (rc) {
+        rc.textContent = shown === total ? `${total} members` : `${shown} of ${total} members`;
+    }
+
+    syncChips();
+}
+
+// Free-text search across all member fields, including the referral fields
+// (services / lookingFor / canHelp / idealReferral / about) — see memberSearchText.
 function matchesSearch(member, keyword) {
-    return [
-        member.name,
-        member.company,
-        member.industry,
-        member.chapter,
-        member.phone,
-        member.memberType
-    ].some(value =>
-        value != null &&
-        value.toString().toLowerCase().includes(keyword)
-    );
+    return memberSearchText(member).includes(keyword);
 }
 
 // Single filtering pipeline: chips AND free-text search are applied together,
@@ -191,34 +256,36 @@ function matchesSearch(member, keyword) {
 // funnel through here.
 export function applyFilters() {
 
-    let members = getMembers();
+    const all = getMembers();
+    let members = all;
 
-    const chapter = getActiveChapter();
-    const industry = getActiveIndustry();
-    const memberType = getActiveMemberType();
+    const chapters = getActiveChapter();
+    const industries = getActiveIndustry();
+    const memberTypes = getActiveMemberType();
     const search = getActiveSearch().trim().toLowerCase();
 
-    if (chapter !== "ALL") {
-        members = members.filter(m => m.chapter === chapter);
+    if (chapters.length > 0) {
+        members = members.filter(m => chapters.includes(m.chapter));
     }
 
-    if (industry !== "ALL") {
+    if (industries.length > 0) {
         members = members.filter(member => {
 
             if (!member.industry)
                 return false;
 
-            return member
+            const memberIndustries = member
                 .industry
                 .split(";")
-                .map(i => i.trim())
-                .includes(industry);
+                .map(i => i.trim());
+
+            return industries.some(ind => memberIndustries.includes(ind));
 
         });
     }
 
-    if (memberType !== "ALL") {
-        members = members.filter(m => (m.memberType || "Other") === memberType);
+    if (memberTypes.length > 0) {
+        members = members.filter(m => memberTypes.includes(m.memberType || "Other"));
     }
 
     if (search) {
@@ -232,5 +299,7 @@ export function applyFilters() {
     setFilteredMembers(members);
 
     renderMembers(members);
+
+    updateFilterChrome(members.length, all.length);
 
 }

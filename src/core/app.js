@@ -59,6 +59,8 @@ const SPRITE = `
   <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h3.4l1.6 4.2-2 1.4a11.5 11.5 0 0 0 5.4 5.4l1.4-2 4.2 1.6V19a2 2 0 0 1-2.1 2A16 16 0 0 1 4 6.1 2 2 0 0 1 5 4Z"/></symbol>
   <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20.5 11.5a7.6 7.6 0 0 1-10.9 6.9L4.5 20l1.1-4.9A7.6 7.6 0 1 1 20.5 11.5Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7.5 16.5 16.5 7.5"/><path d="M9 7.5h7.5V15"/></symbol>
+  <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 12h2M10 12h10M4 17h7M15 17h5"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="13" cy="17" r="2"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.3 3.6 5.3 3.6 8.5S14.4 18.2 12 20.5C9.6 18.2 8.4 15.2 8.4 12S9.6 5.8 12 3.5Z"/></symbol>
   <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5.5A2 2 0 0 1 6 3.5h13v14H6a2 2 0 0 0-2 2Z"/><path d="M4 19.5A2 2 0 0 1 6 17.5h13"/></symbol>
   <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></symbol>
@@ -113,7 +115,7 @@ ${SPRITE}
 
 <section class="hero">
 
-    <span class="eyebrow">Mahesh Professional Forum</span>
+    <span class="eyebrow">Mahesh Professional Forum (Zone 3)</span>
 
     <h1 class="wordmark">Referral Connect <i>Member Directory</i></h1>
 
@@ -121,21 +123,21 @@ ${SPRITE}
 
     <p class="hero-sub">Referral Connect brings together like-minded business professionals to build lasting relationships, exchange quality referrals, and create new business opportunities. Through meaningful networking and collaboration, we empower members to grow, learn, and succeed together.</p>
 
-    <div class="stats">
+    <div class="statstrip">
 
         <div class="stat">
-            <div class="stat-ic"><svg class="ico"><use href="#i-users"/></svg></div>
-            <div><b class="tnum" id="memberCount">0</b><p>Members</p></div>
+            <span class="si"><svg class="ico"><use href="#i-users"/></svg></span>
+            <div><b class="tnum" id="memberCount">0</b> <span>Members</span></div>
         </div>
 
         <div class="stat">
-            <div class="stat-ic"><svg class="ico"><use href="#i-building"/></svg></div>
-            <div><b class="tnum" id="chapterCount">0</b><p>Chapters</p></div>
+            <span class="si"><svg class="ico"><use href="#i-building"/></svg></span>
+            <div><b class="tnum" id="chapterCount">0</b> <span>Chapters</span></div>
         </div>
 
         <div class="stat">
-            <div class="stat-ic accent"><svg class="ico"><use href="#i-layers"/></svg></div>
-            <div><b class="tnum" id="industryCount">0</b><p>Industries</p></div>
+            <span class="si acc"><svg class="ico"><use href="#i-layers"/></svg></span>
+            <div><b class="tnum" id="industryCount">0</b> <span>Industries</span></div>
         </div>
 
     </div>
@@ -144,9 +146,17 @@ ${SPRITE}
 
 <section class="filters">
 
-    <h3>Browse members <span id="resultCount" class="result-count"></span></h3>
+    <div class="filterbar" id="filterbar">
+        <button class="filter-btn" id="filterToggle" aria-expanded="false" aria-controls="filterPanel">
+            <svg class="ico"><use href="#i-sliders"/></svg>Filters
+            <span class="filter-badge" id="filterBadge" hidden>0</span>
+            <svg class="ico chev"><use href="#i-chevron"/></svg>
+        </button>
+        <div class="active-pills" id="activePills"></div>
+        <span class="result-count" id="resultCount"></span>
+    </div>
 
-    <div id="filterContainer"></div>
+    <div class="filter-panel" id="filterPanel" hidden></div>
 
 </section>
 

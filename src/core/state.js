@@ -1,8 +1,8 @@
 let allMembers = [];
 let filteredMembers = [];
-let activeChapter = "ALL";
-let activeIndustry = "ALL";
-let activeMemberType = "ALL";
+let activeChapters = [];
+let activeIndustries = [];
+let activeMemberTypes = [];
 let activeSearch = "";
 let activeSavedOnly = false;
 let savedMemberIds = loadSavedMemberIds();
@@ -52,27 +52,54 @@ export function toggleSavedMember(id) {
 }
 
 export function getActiveChapter() {
-    return activeChapter;
+    return activeChapters;
 }
 
-export function setActiveChapter(chapter) {
-    activeChapter = chapter;
+export function setActiveChapter(chapters) {
+    activeChapters = Array.isArray(chapters) ? chapters : [];
+}
+
+export function toggleActiveChapter(chapter) {
+    const idx = activeChapters.indexOf(chapter);
+    if (idx >= 0) {
+        activeChapters.splice(idx, 1);
+    } else {
+        activeChapters.push(chapter);
+    }
 }
 
 export function getActiveIndustry() {
-    return activeIndustry;
+    return activeIndustries;
 }
 
-export function setActiveIndustry(industry) {
-    activeIndustry = industry;
+export function setActiveIndustry(industries) {
+    activeIndustries = Array.isArray(industries) ? industries : [];
+}
+
+export function toggleActiveIndustry(industry) {
+    const idx = activeIndustries.indexOf(industry);
+    if (idx >= 0) {
+        activeIndustries.splice(idx, 1);
+    } else {
+        activeIndustries.push(industry);
+    }
 }
 
 export function getActiveMemberType(){
-    return activeMemberType;
+    return activeMemberTypes;
 }
 
-export function setActiveMemberType(type){
-    activeMemberType = type;
+export function setActiveMemberType(types){
+    activeMemberTypes = Array.isArray(types) ? types : [];
+}
+
+export function toggleActiveMemberType(type) {
+    const idx = activeMemberTypes.indexOf(type);
+    if (idx >= 0) {
+        activeMemberTypes.splice(idx, 1);
+    } else {
+        activeMemberTypes.push(type);
+    }
 }
 
 export function getActiveSearch(){

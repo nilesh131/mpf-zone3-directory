@@ -1,7 +1,7 @@
 import { getMembers, setActiveSearch } from "../core/state.js";
 import { applyFilters } from "./filter.js";
 import { openProfile } from "./profile.js";
-import { titleCase, initials, escapeHtml } from "../utils/helpers.js";
+import { titleCase, initials, escapeHtml, memberSearchText } from "../utils/helpers.js";
 
 const MAX_SUGGESTIONS = 7;
 
@@ -11,8 +11,7 @@ let matches = [];
 let active = -1;
 
 function matchMember(m, q){
-    return [m.name, m.company, m.industry, m.chapter, m.memberType]
-        .some(v => v != null && v.toString().toLowerCase().includes(q));
+    return memberSearchText(m).includes(q);
 }
 
 function firstIndustry(value){
