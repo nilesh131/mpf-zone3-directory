@@ -34,7 +34,7 @@ function renderSuggestions(q){
 <div class="suggest-item" role="option" data-i="${i}">
     <div class="suggest-av">${escapeHtml(initials(m.name))}</div>
     <div class="suggest-meta">
-        <div class="suggest-name">${escapeHtml(titleCase(m.name))}</div>
+        <div class="suggest-name">${escapeHtml(m.name)}</div>
         <div class="suggest-sub">${escapeHtml(sub)}</div>
     </div>
     <span class="suggest-ch">${escapeHtml(m.chapter || "MPF")}</span>

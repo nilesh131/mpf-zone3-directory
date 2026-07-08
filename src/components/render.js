@@ -41,7 +41,7 @@ function memberCard(member) {
 
     const image = getImage(member);
 
-    const name = titleCase(member.name);
+    const name = member.name;
 
     const company = member.company || "-";
 

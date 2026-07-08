@@ -266,7 +266,7 @@ function createProfile(member){
 
     const image = member.photo || `/photos/${cleanPhone(member.phone)}.webp`;
     const init = esc(initials(member.name));
-    const name = esc(titleCase(member.name));
+    const name = esc(member.name);
 
     const industries = String(member.industry || "")
         .split(";")
