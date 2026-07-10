@@ -329,6 +329,13 @@ footer{max-width:var(--maxw);margin:0 auto;padding:28px 22px 44px;color:var(--mu
     .filterbar .result-count{order:2}
     .filterbar .active-pills{order:3;flex:1 1 100%;min-width:0}
 }
+
+@media (min-width:1024px) {
+    .profile-drawer.demo-fullwidth {
+        width:100%;
+        max-width:100%;
+    }
+}
 @media (max-width:520px){
     .saved-toggle{padding:0 10px;font-size:12px}
     .search input{height:38px;font-size:13px;padding:0 14px 0 40px}

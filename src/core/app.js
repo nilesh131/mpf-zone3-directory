@@ -105,6 +105,16 @@ ${SPRITE}
             <svg class="ico"><use href="#i-star"/></svg>Saved
         </button>
 
+        <div class="demo-container">
+
+    <button id="demoBtn" class="demo-btn">
+
+        ▶ Demo Tour
+
+    </button>
+
+</div>
+
     </div>
 
 </header>
