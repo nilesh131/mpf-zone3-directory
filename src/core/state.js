@@ -1,3 +1,5 @@
+import { memberNameSortKey } from "../utils/helpers.js";
+
 let allMembers = [];
 let filteredMembers = [];
 let activeChapters = [];
@@ -7,9 +9,21 @@ let activeSearch = "";
 let activeSavedOnly = false;
 let savedMemberIds = loadSavedMemberIds();
 
+function sortMembersList(members) {
+    return [...members].sort((a, b) => {
+        const aKey = memberNameSortKey(a.name);
+        const bKey = memberNameSortKey(b.name);
+
+        if (aKey < bKey) return -1;
+        if (aKey > bKey) return 1;
+
+        return String(a.name || "").localeCompare(String(b.name || ""), undefined, { sensitivity: "base" });
+    });
+}
+
 export function setMembers(members) {
-    allMembers = [...members];
-    filteredMembers = [...members];
+    allMembers = sortMembersList(members);
+    filteredMembers = [...allMembers];
 }
 
 export function getMembers() {
@@ -18,6 +32,10 @@ export function getMembers() {
 
 export function getFilteredMembers() {
     return filteredMembers;
+}
+
+export function sortMembers(members) {
+    return sortMembersList(members);
 }
 
 export function setFilteredMembers(members) {

@@ -13,7 +13,8 @@ import {
     toggleActiveIndustry,
     toggleActiveMemberType,
     setActiveSearch,
-    setFilteredMembers
+    setFilteredMembers,
+    sortMembers
 } from "../core/state.js";
 
 import { renderMembers } from "./render.js";
@@ -296,6 +297,7 @@ export function applyFilters() {
         members = members.filter(m => isSavedMember(m.id));
     }
 
+    members = sortMembers(members);
     setFilteredMembers(members);
 
     renderMembers(members);

@@ -43,6 +43,14 @@ export function memberSearchText(member){
         .toLowerCase();
 }
 
+export function memberNameSortKey(name){
+    return String(name || "")
+        .trim()
+        .replace(/^(?:dr\.?|ar\.?|ca\.?|cs\.?)\s+/i, "")
+        .replace(/\s+/g, " ")
+        .toLowerCase();
+}
+
 // True when a string is nothing but a bare URL (so we can hide it as body text
 // and surface it as a Website button instead).
 export function isBareUrl(str){
